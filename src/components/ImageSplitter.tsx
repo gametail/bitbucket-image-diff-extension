@@ -43,7 +43,7 @@ const ImageSplitter = ({ className, oldColor, newColor }: ImageSplitterProps) =>
             />
             <div
                 style={{ left: `${percentage * 100}%` }}
-                className="absolute inset-y-0 h-full w-0.5 bg-gray-light/50"
+                className="absolute inset-y-0 h-full w-0.5 bg-neutral"
             ></div>
         </div>
     );

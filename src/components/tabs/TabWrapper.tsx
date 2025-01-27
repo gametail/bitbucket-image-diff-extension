@@ -17,13 +17,13 @@ const TabWrapper = ({}: TabWrapperProps) => {
 
     return (
         <div className="w-full my-4 flex flex-col gap-4 items-center">
-            <div className="join bg-tab-wrapper-gray border border-gray-light">
+            <div className="join bg-base-300 border border-base-300">
                 {Object.entries(tabs).map(([key, { tabName }]) => (
                     <div
                         key={key}
                         onClick={() => setActiveControlTab(key as Tabs)}
-                        className={cn("w-28 join-item btn hover:bg-gray-light bg-gray-dark", {
-                            "bg-gray-light": key === activeControlTab,
+                        className={cn("w-28 join-item btn hover:bg-base-300 bg-base-100", {
+                            "bg-base-200": key === activeControlTab,
                         })}
                     >
                         {tabName}

@@ -11,6 +11,10 @@ export default defineContentScript({
     async main() {
         try {
             console.log("hello");
+
+            const body = document.body;
+            body.style.height = "fit-content";
+
             // Wait for the element to appear
             const container = await waitForElement('[role="region"][aria-label="Diff"]');
 

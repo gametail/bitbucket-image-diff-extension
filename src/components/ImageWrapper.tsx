@@ -11,7 +11,12 @@ type ImageWrapperProps = {
     ref?: "old" | "new";
 };
 const ImageWrapper = ({ ref, title, titleAlign = "center", src, color, className, style }: ImageWrapperProps) => {
-    const { bg, border, text } = COLOR_CONFIG_MAP[color];
+    const { light, dark } = COLOR_CONFIG_MAP[color];
+    const theme = useTheme();
+    const bg = cn({ [light.bg]: theme === "light", [dark.bg]: theme === "dark" });
+    const text = cn({ [light.text]: theme === "light", [dark.text]: theme === "dark" });
+    const border = cn({ [light.border]: theme === "light", [dark.border]: theme === "dark" });
+
     const { oldImgRef, newImgRef } = useContainerContext();
 
     const { imgRef, imgHeight, imgWidth } = useImageSize();
@@ -37,17 +42,17 @@ const ImageWrapper = ({ ref, title, titleAlign = "center", src, color, className
                 >
                     {title}
                 </div>
-                <div className="relative w-full">
+                <div className="relative object-contain">
                     <img
                         ref={setRefs}
-                        className={cn("my-4 rounded-[3px] border-solid border-[3px] w-full", border)}
+                        className={cn("my-4 rounded-[3px] border-solid border-[3px] w-full max-h-[650px]", border)}
                         src={src}
                     />
                 </div>
             </div>
             <div>
-                <span className="font-bold">W: </span>
-                <span className={text}>{imgWidth}</span> | <span className="font-bold">H: </span>
+                <span className="font-bold text-base-content">W: </span>
+                <span className={text}>{imgWidth}</span> | <span className="font-bold text-base-content">H: </span>
                 <span className={text}>{imgHeight}</span>
             </div>
         </div>

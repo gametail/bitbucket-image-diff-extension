@@ -3,12 +3,14 @@ import ImageWrapper from "@/components/ImageWrapper";
 import TabWrapper from "@/components/tabs/TabWrapper";
 import TabOutlet from "../tabs/TabOutlet";
 import ImageDiffer from "../image-differ/ImageDiffer";
+import useTheme from "@/hooks/useTheme";
 
 type ContainerProps = {
     images: { oldImage: ImageObject; newImage: ImageObject };
 };
 const Container = ({ images }: ContainerProps) => {
     const { setNewImg, setOldImg, hideSrcImages } = useContainerContext();
+    const theme = useTheme();
 
     const { oldImage, newImage } = images;
 
@@ -18,10 +20,16 @@ const Container = ({ images }: ContainerProps) => {
     }, []);
 
     return (
-        <div className="w-full">
+        <div
+            className={cn("w-full", {
+                "bg-dark-container": theme === "dark",
+                "bg-light-container": theme === "light",
+            })}
+            data-theme={theme}
+        >
             <TabWrapper />
             <div
-                className={cn("grid grid-cols-3 gap-4", {
+                className={cn("grid grid-cols-3", {
                     "grid-cols-1 place-items-center": hideSrcImages,
                 })}
             >
@@ -48,7 +56,7 @@ const Container = ({ images }: ContainerProps) => {
                                 oldColor={oldImage.color}
                             />
                         ),
-                        diff: <ImageDiffer className="max-w-[500px]" />,
+                        diff: <ImageDiffer />,
                         split: (
                             <ImageSplitter
                                 newColor={newImage.color}

@@ -9,9 +9,21 @@ type ImageDifferProps = {
     className?: string;
 };
 const ImageDiffer = ({ className }: ImageDifferProps) => {
-    const { bg, border, text } = COLOR_CONFIG_MAP["blue"];
+    const theme = useTheme();
+    const { light, dark } = COLOR_CONFIG_MAP["blue"];
+
+    const bg = cn({ [light.bg]: theme === "light", [dark.bg]: theme === "dark" });
+    const text = cn({ [light.text]: theme === "light", [dark.text]: theme === "dark" });
+    const border = cn({ [light.border]: theme === "light", [dark.border]: theme === "dark" });
+
+    const { light: lightGreen, dark: darkGreen } = COLOR_CONFIG_MAP["green"];
+
+    const bgSuccess = cn({ [lightGreen.bg]: theme === "light", [darkGreen.bg]: theme === "dark" });
+    const textSuccess = cn({ [lightGreen.text]: theme === "light", [darkGreen.text]: theme === "dark" });
+    const borderSuccess = cn({ [lightGreen.border]: theme === "light", [darkGreen.border]: theme === "dark" });
+
     const imgRef = useRef<HTMLImageElement>(null);
-    const { bg: bgSuccess, border: borderSuccess, text: textSuccess } = COLOR_CONFIG_MAP["green"];
+
     const {
         oldImgRef,
         newImgRef,
@@ -55,8 +67,8 @@ const ImageDiffer = ({ className }: ImageDifferProps) => {
             )}
         >
             <div className="flex-1 flex flex-col items-center w-full">
-                <p className={cn("uppercase", { [textSuccess]: hasNoDiffs })}>Diff</p>
-                <div className="relative flex-1 w-full items-center flex flex-col">
+                <p className={cn("uppercase", text, { [textSuccess]: hasNoDiffs })}>Diff</p>
+                <div className="relative flex-1 items-center flex flex-col">
                     <Checkerboard
                         imageRef={imgRef}
                         className={cn("absolute inset-0 my-4", {
@@ -69,9 +81,13 @@ const ImageDiffer = ({ className }: ImageDifferProps) => {
                             src={diffImage}
                             ref={imgRef}
                             alt="Image Diff"
-                            className={cn("my-4 rounded-[3px] border-solid border-[3px] w-full", border, {
-                                [borderSuccess]: hasNoDiffs,
-                            })}
+                            className={cn(
+                                "my-4 rounded-[3px] border-solid border-[3px] w-full max-h-[650px] object-contain z-10",
+                                border,
+                                {
+                                    [borderSuccess]: hasNoDiffs,
+                                },
+                            )}
                         />
                     ) : (
                         <div

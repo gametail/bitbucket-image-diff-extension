@@ -1,20 +1,39 @@
-import { ClassValue } from "clsx";
-
-export const COLOR_CONFIG_MAP: Record<ColorNames, ColorConfig> = {
+export const COLOR_CONFIG_MAP: Record<ColorNames, { light: ColorConfig; dark: ColorConfig }> = {
     green: {
-        text: "text-green-main",
-        bg: "bg-green-shade",
-        border: "border-green-main",
+        dark: {
+            text: "text-green-main",
+            bg: "bg-green-shade",
+            border: "border-green-main",
+        },
+        light: {
+            text: "text-green-saturated",
+            bg: "bg-green-light",
+            border: "border-green-saturated",
+        },
     },
     red: {
-        text: "text-red-main",
-        bg: "bg-red-shade",
-        border: "border-red-main",
+        dark: {
+            text: "text-red-main",
+            bg: "bg-red-shade",
+            border: "border-red-main",
+        },
+        light: {
+            text: "text-red-saturated",
+            bg: "bg-red-light",
+            border: "border-red-saturated",
+        },
     },
     blue: {
-        text: "text-blue-main",
-        bg: "bg-blue-shade",
-        border: "border-blue-main",
+        dark: {
+            text: "text-blue-main",
+            bg: "bg-blue-shade",
+            border: "border-blue-main",
+        },
+        light: {
+            text: "text-blue-saturated",
+            bg: "bg-blue-light",
+            border: "border-blue-saturated",
+        },
     },
 };
 

@@ -20,7 +20,7 @@ const ColorPicker = ({ title, className, color, setColor, disabled = false }: Co
             })}
         >
             <div className="font-medium">{title}</div>
-            <div className="relative w-4 h-4 my-1 ring-1 ring-offset-4 ring-offset-[#1d2125] ring-gray-light rounded-full overflow-clip">
+            <div className="relative w-4 h-4 my-1 ring-1 ring-offset-4 ring-offset-neutral ring-neutral-content rounded-full overflow-clip">
                 <input
                     type="color"
                     disabled={disabled}

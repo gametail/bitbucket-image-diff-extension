@@ -17,7 +17,7 @@ const ImageCrossFader = ({ className, oldColor, newColor }: ImageCrossFaderProps
                 src={oldImg.src}
                 title={oldImg.title}
             />
-            <p className="uppercase absolute top-4 w-full z-10 text-center">Diff</p>
+            <p className="uppercase absolute mt-0 top-4 w-full z-10 text-center">Diff</p>
             <ImageWrapper
                 className="absolute inset-0"
                 color={newColor}
