@@ -6,10 +6,13 @@
 4. Create a ```.env``` file in the root of this project and add a match url environment variable for your bitbucket for example: ```WXT_MATCH_URL=https://bitbucket.org/*```
 5. Go in the ```wxt.config.ts``` and check the runner object, if you want to preserve the data of the dev browser uncomment the correct lines, else remove both
 6. Start the dev server ```npm run dev``` and visit a PR with img Diffs on your Bitbucket
-7. Open the Diff settings and then select ```All at once``` under Load Files and Save 
+7. Open the Diff settings and then select ```All at once``` under Load Files and Save
+
 ![cog](example/cog.png)
+
 ![alt text](example/diff_settings.png)
-8. Refresh the page
+
+9. Refresh the page
 
 If you set everything up correctly you can visit a pull request with an image diff.
 
