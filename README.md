@@ -1,4 +1,4 @@
-# Setup
+# Local Dev Setup
 
 1. Clone this repo
 2. Install dependencies ```npm i```
@@ -8,11 +8,37 @@
 6. Start the dev server ```npm run dev``` and visit a PR with img Diffs on your Bitbucket
 7. Open the Diff settings and then select ```All at once``` under Load Files and Save
 
-![cog](example/cog.png)
+# Build From Source
 
-![alt text](example/diff_settings.png)
+- run steps 1. - 4. see above
+5. Run `npm run build`
+6. Open Chrome Extensions or enter this in address bar: chrome://extensions/
+7. Enable `Developer Mode`
 
-9. Refresh the page
+![developer_mode](example/developer_mode.png)
+
+8. Select `Load Unpacked`
+
+![load_unpacked](example/load_unpacked.png)
+
+9. On Mac: Show invisible files by pressing `cmd+shift+.`
+10. Select `.output -> crome-mv3`
+
+![select_output](example/select_output.png)
+
+11. The Extension should be installed ![installed](example/installed.png)
+
+# Using with Bitbucket
+
+1. Select PR Settings
+
+![pr_settings](example/pr_settings.png)
+
+2. Select Setting "All at once"
+
+![diff_settings](example/diff_settings.png)
+
+3. Refresh the page
 
 If you set everything up correctly you can visit a pull request with an image diff.
 
