@@ -1,7 +1,7 @@
 {
   "name": "bitbucket-image-diff-extension",
   "description": "A browser extension built with the WXT framework that enhances Bitbucket pull requests by providing advanced image comparison functionality. Simplify and streamline the review process with intuitive tools for visualizing image differences.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "author": "Zafer Sigil",
   "license": "MIT",
